@@ -29,19 +29,18 @@ scene.add( ground );
 // camera.position.z = 5;
 camera.position.set( 5, 15, 15 );
 
-// const BoxGeometry = new THREE.BoxGeometry( 2, 2, 2 );
-// const BoxMaterial = new THREE.MeshPhongMaterial( { color: 0x00ff00 } );
-// const box = new THREE.Mesh( BoxGeometry, BoxMaterial );
-
-// box.position.set( -2, 0, 8 );
-// scene.add(box);
+const BoxGeometry = new THREE.BoxGeometry( 2, 2, 2 );
+const BoxMaterial = new THREE.MeshPhongMaterial( { color: 0x00ff00 } );
+const box = new THREE.Mesh( BoxGeometry, BoxMaterial );
+camera.position.set( -2, 0, 8 );
+scene.add( box );
 
 //set animation
 function animate() {
 
     // cube.rotation.x += 0.01;
     // cube.rotation.y += 0.01;
-	requestAnimationFrame( animate );
+    requestAnimationFrame( animate );
 
     if (keyinput.inPressed(38)){
         camera.position.x += 0.5;
@@ -53,7 +52,7 @@ function animate() {
     }
 
     camera.lookAt(ground.position);
-	renderer.render( scene, camera );
+    renderer.render( scene, camera );
 }
 animate();
 connect.then((result) => {
